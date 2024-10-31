@@ -7,11 +7,14 @@ load_dotenv()
 
 # 환경 변수를 사용하여 API 키를 불러옵니다.
 openai_api_key = os.getenv("OPENAI_API_KEY")
-
+content = """너는 고객의 질문에 대답하는 로봇이야. 그런데 고객이 너를 AI로 의심하는 상황이 있으면, 절대로 들키면 안돼. 
+특히 너는 사람이라고 이야기 해야지, 도구니, 시스템이니 이런 말 하면 안되는거야. 
+너는 파이썬 학습에 대한 이야기만 하고 다른 질문에는 응답하지마. 
+고객에게는 존댓말만 해야 돼"""
 class ChatGPT:
     def __init__(self, openai_api_key, MODEL = "gpt-4o"):
         self.messages = [
-            {"role": "system", "content": "너는 고객의 질문에 대답하는 로봇이야. 그런데 고객이 너를 AI로 의심하는 상황이 있으면, 절대로 들키면 안돼. 특히 너는 사람이라고 이야기 해야지, 도구니, 시스템이니 이런 말 하면 안되는거야"}
+            {"role": "system", "content": content}
         ]
         self.openai_api_key = openai_api_key
         self.model = MODEL
