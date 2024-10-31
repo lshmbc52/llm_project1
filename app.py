@@ -1,6 +1,8 @@
 import streamlit as st
 from utils import ChatGPT, openai_api_key
 
+st.title("LikeLion AI Chatbot :thumbsup:")
+
 if 'client' not in st.session_state:
     st.session_state['client'] = ChatGPT(openai_api_key=openai_api_key)
 chatbot = st.session_state['client']
